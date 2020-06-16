@@ -14,15 +14,18 @@ exports.handler = async (event, context) => {
    var username = body.email;
   
      
-      try {
+  
     const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
-     } catch (e) {
+      if (username == user.data.username) {
         return {
         statusCode: 200,
-        body: "err888r"
-     }
+        body: "okkk"
+      }
+      } else {
         return {
         statusCode: 200,
         body: "errr"
       }
+      }
+
 }
