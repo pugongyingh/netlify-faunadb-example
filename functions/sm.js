@@ -34,7 +34,7 @@ var  tmp ="8888";
         
         return {
         statusCode: 200,
-        body: min
+        body: "min"
       }
       } 
         return {
