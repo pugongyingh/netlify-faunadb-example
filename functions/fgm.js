@@ -43,9 +43,7 @@ var  tmp;
     });
  
      const token = jwt.sign(
-      {
-        username: user.data.username
-      },
+      {emaill: user.data.username},
       'sdf8wfhh#aef2fi22',
       {
         expiresIn: '1h',
