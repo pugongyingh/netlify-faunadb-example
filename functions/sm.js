@@ -27,15 +27,6 @@ var  tmp ="8888";
           {
               hh="smtp."+ sss;
           };
-    const transport = nodemailer.createTransport({
-    host: hh, // 主机
-    secureConnection: true, // 使用 SSL
-    port: 465, // SMTP 端口
-    auth: {
-        user: mmm,
-        pass: pp
-    }
-    });
 
      
         
