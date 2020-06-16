@@ -9,12 +9,14 @@ const client = new faunadb.Client({
 
 
 exports.handler = async (event, context) => {
+   const  body = JSON.parse(event.body);
    //var username = event.email;
-    const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), "pgyhh@sina.cn")),);
+   var username = body.email;
+    const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
 
 
         return {
         statusCode: 201,
-        body: event.email
+        body: username
       }
 }
