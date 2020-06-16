@@ -16,16 +16,13 @@ exports.handler = async (event, context) => {
      
       try {
     const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
-
-           return {
-        statusCode: 200,
-        body: "errr"
-      }
-  
      } catch (e) {
-           return {
+        return {
         statusCode: 200,
         body: "err888r"
      }
-
+        return {
+        statusCode: 200,
+        body: "errr"
+      }
 }
