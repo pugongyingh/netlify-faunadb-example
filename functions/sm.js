@@ -41,14 +41,24 @@ var  tmp;
         pass: pp
     }
     });
-
-    //const { email }  = JSON.parse(event.body) 
+ 
+     const token = jwt.sign(
+      {
+        username: user.data.username,
+      },
+      'secret',
+      {
+        expiresIn: '1h',
+      },
+    );
+const url = `http://127.0.0.1:8076/dy/change-password.html?` + token;
     let mailOptions = {
       from: mmm,
       to: username,
-      subject: "sub",
-      text: "tmp",
+      subject: sub,
+      html: `Reset link: <a href="http://127.0.0.1:8076/dy/change-password.html?token=${token}">http://127.0.0.1:8076/dy/change-password.html?token=${token}</a>`,
   };
+
      
   let value = await transport.sendMail(mailOptions);
  min= JSON.stringify(value.response);       
