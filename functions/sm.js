@@ -11,23 +11,14 @@ exports.handler = async (event, context) => {
     const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
       if (username == user.data.username) {
 
+    var min = "10000";
 var  mm = process.env.mm;
-var  tmp ="8888";
- var  sub = "777";
+var  tmp;
+ var  sub;
   var  ss = parseInt(body.send);
-  var  tt = parseInt(body.tmp);        
- var  mmm=mm.split(';')[0];
- var  pp=mm.split(';')[1];
- var  sss = mmm.split('@')[1];
- var  hh;
-           if(sss == "sina.com.cn")
-          {
-             hh="smtp.sina.com";
-          }
-          else
-          {
-              hh="smtp."+ sss;
-          };
+  var  tt = parseInt(body.tmp);
+
+     mm =mm.split('!')[ss];
 
 
      
@@ -36,7 +27,7 @@ var  tmp ="8888";
         
         return {
         statusCode: 200,
-        body: "min"
+        body: min
       }
       };
         return {
