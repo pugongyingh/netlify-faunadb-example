@@ -13,20 +13,7 @@ const client = new faunadb.Client({
 var  mm = process.env.mm;
 var  tmp ="8888";
  var  sub = "777“;
-  var  ss = parseInt(body.send);
-  var  tt = parseInt(body.tmp);        
- var  mmm=mm.split(';')[0];
- var  pp=mm.split(';')[1];
- var  sss = mmm.split('@')[1];
- var  hh;
-           if(sss == "sina.com.cn")
-          {
-             hh="smtp.sina.com";
-          }
-          else
-          {
-              hh="smtp."+ sss;
-          };
+
 
      
         
