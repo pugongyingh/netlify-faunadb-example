@@ -12,8 +12,8 @@ exports.handler = async (event, context) => {
     var token = body.token;
   
 
-    let decoded = "";
-    jwt.verify(token, 'secret', (err, result) => {
+    let decoded = "777";
+    jwt.verify(token, 'sdf8wfhh#aef2fi22', (err, result) => {
       if (err) {
         if (err.name === 'JsonWebTokenError') {
         return {
