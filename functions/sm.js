@@ -14,14 +14,9 @@ exports.handler = async (event, context) => {
       q.Get(q.Match(q.Index('users_by_username'), username)),
     );
 
-    if (user == null) {
-      return {
-        statusCode: 400,
-        body: "errr"
-      }
-    }
+
         return {
         statusCode: 200,
-        body: "okk"
+        body: user.data.username
       }
 }
