@@ -12,7 +12,7 @@ exports.handler = async (event, context) => {
     var token = body.token;
   
 
-    let decoded = ''
+    let decoded = "";
     jwt.verify(token, 'secret', (err, result) => {
       if (err) {
         if (err.name === 'JsonWebTokenError') {
@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
       }
         }
       }
-      decoded = result.username;
+      decoded = JSON.stringify(result);
         return {
         statusCode: 200,
         body: decoded
