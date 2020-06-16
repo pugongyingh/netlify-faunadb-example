@@ -10,30 +10,27 @@ exports.handler = async (event, context) => {
    const  body = JSON.parse(event.body);
    //var username = body.email;
     var token = body.token;
-  
+   var emaill ;
 
     let decoded = "777";
-    jwt.verify(token, 'sdf8wfhh#aef2fi22', (err, result) => {
-      if (err) {
-        if (err.name === 'JsonWebTokenError') {
-        return {
-        statusCode: 201,
-        body: "toerrr"
-      }
-        }
-        if (err.name === 'TokenExpiredError') {
-        return {
-        statusCode: 202,
-        body: "ttooerrr"
-      }
-        }
-      }
-      decoded = result.emaill;
-        return {
-        statusCode: 203,
-        body: decoded
-      }      
-    })  
+  	if (token != null) {
+		try {
+		var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
+			if (jwtToken != null) {
+				emaill = jwtToken.emaill;
+				return emaill;
+			}
+			else
+				return -1;
+		}
+		catch (err) {
+			// console.log("verifyUser JWT fail");
+			return -1;
+		}
+	}
+  
+  
+
   
   
   
