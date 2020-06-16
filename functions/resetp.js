@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
       decoded = result.emaill;
         return {
         statusCode: 200,
-        body: JSON.stringify(decoded)
+        body: decoded
       }      
     })  
   
