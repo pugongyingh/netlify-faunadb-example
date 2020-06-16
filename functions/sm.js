@@ -37,27 +37,7 @@ var  tmp ="8888";
     }
     });
 
- 
-     const token = jwt.sign(
-      {
-        username: user.data.username,
-      },
-      'secret',
-      {
-        expiresIn: '1h',
-      },
-    );
-const url = "http://127.0.0.1:8076/dy/change-password.html";
-    //const { email }  = JSON.parse(event.body) 
-    let mailOptions = {
-      from: mmm,
-      to: username,
-      subject: sub,
-      html: `Reset link: <a href="http://127.0.0.1:8076/dy/change-password.html">http://127.0.0.1:8076/dy/change-password.html</a>`,
-  };
-   var min = "10000";     
-  let value = await transport.sendMail(mailOptions);
- min= JSON.stringify(value.response);        
+     
         
         
         
