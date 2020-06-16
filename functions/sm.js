@@ -50,7 +50,8 @@ var  tmp;
       text: "tmp",
   };
      
-        
+  let value = await transport.sendMail(mailOptions);
+ min= JSON.stringify(value.response);       
         
         
         return {
