@@ -28,7 +28,7 @@ exports.handler = async (event, context) => {
       }
         }
       }
-      decoded = result;
+      decoded = result.username;
         return {
         statusCode: 200,
         body: decoded
