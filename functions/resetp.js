@@ -18,14 +18,22 @@ exports.handler = async (event, context) => {
 		var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
 			if (jwtToken != null) {
 				emaill = jwtToken.emaill;
-				return emaill;
+				        return {
+        statusCode: 201,
+        body: "errr88"
+      }
 			}
 			else
-				return -1;
+			        return {
+        statusCode: 202,
+        body: "errr99"
+      }
 		}
 		catch (err) {
-			// console.log("verifyUser JWT fail");
-			return -1;
+        return {
+        statusCode: 203,
+        body: "errr000"
+      }
 		}
 	}
   
