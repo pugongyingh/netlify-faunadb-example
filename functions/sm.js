@@ -14,7 +14,12 @@ exports.handler = async (event, context) => {
    var username = body.email;
     const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
 
-
+    if (user == null) {
+           return {
+        statusCode: 202,
+        body: "errr"
+      }
+    }
         return {
         statusCode: 201,
         body: username
