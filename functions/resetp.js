@@ -20,7 +20,7 @@ exports.handler = async (event, context) => {
 				emaill = jwtToken.emaill;
 				        return {
         statusCode: 201,
-        body: "errr88"
+        body: emaill
       }
 			}
 			else
