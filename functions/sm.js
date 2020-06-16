@@ -16,14 +16,9 @@ exports.handler = async (event, context) => {
      
       try {
     const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
-       if (user && user.data)  {
-        return {
-        statusCode: 201,
-        body: username
-      }
-       }
+
            return {
-        statusCode: 202,
+        statusCode: 200,
         body: "errr"
       }
   
