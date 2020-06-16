@@ -4,17 +4,17 @@ const jwt = require('jsonwebtoken');
 const q = faunadb.query;
 
 const client = new faunadb.Client({
-  secret: `fnADs5ccBTACCm5kbmjncetPrz6o9t2bqV5gQvZl`,
+  secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
 
 
 exports.handler = async (event, context) => {
    var username = event.email;
-   // const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
+    const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
 
 
         return {
         statusCode: 200,
-        body: username
+        body: user.data.username
       }
 }
