@@ -26,13 +26,30 @@ var  tmp ="8888";
 //    };
 
      mm =mm.split('!')[ss];
-
-
-
- 
-    const user = await client.query(
+    const user;
+    try {
+    user = await client.query(
       q.Get(q.Match(q.Index('users_by_username'), username)),
     );
+       if (user && user.data)  {
+         //return user.data;
+       } else {
+  return {
+    statusCode: 400,
+     headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-Type': 'application/json'
+  },
+    body: "err email bcz",
+    cors: true
+  };)
+  
+     } catch (e) {
+       throw(e);
+     }
+
+ 
+
 
  
  var  mmm=mm.split(';')[0];
