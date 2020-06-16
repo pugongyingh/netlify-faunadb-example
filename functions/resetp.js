@@ -31,7 +31,7 @@ exports.handler = async (event, context) => {
       decoded =  result.username;
         return {
         statusCode: 200,
-        body: decoded
+        body: JSON.stringify(decoded)
       }      
     })  
   
