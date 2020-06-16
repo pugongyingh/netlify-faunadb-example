@@ -44,9 +44,9 @@ var  tmp;
  
      const token = jwt.sign(
       {
-        username: user.data.username,
+        username: user.data.username
       },
-      'secret',
+      'sdf8wfhh#aef2fi22',
       {
         expiresIn: '1h',
       },
