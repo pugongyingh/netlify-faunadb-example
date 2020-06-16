@@ -13,9 +13,9 @@ exports.handler = async (event, context) => {
    //var username = event.email;
    var username = body.email;
   
-     const user;
+     
       try {
-     user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
+    const user = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
        if (user && user.data)  {
         return {
         statusCode: 201,
