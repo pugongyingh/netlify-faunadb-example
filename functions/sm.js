@@ -10,9 +10,7 @@ exports.handler = async (event, context) => {
 const client = new faunadb.Client({
   secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
-var  mm = process.env.mm;
-var  tmp ="8888";
- var  sub = "777“;
+
 
 
      
@@ -23,7 +21,7 @@ var  tmp ="8888";
         statusCode: 200,
         body: "min"
       }
-      } 
+      };
         return {
         statusCode: 200,
         body: "errr"
