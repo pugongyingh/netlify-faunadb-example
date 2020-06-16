@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
 
 var  mm = process.env.mm;
 var  tmp ="8888";
- var  sub = "777“;
+ var  sub = "777";
   var  ss = parseInt(body.send);
   var  tt = parseInt(body.tmp);        
  var  mmm=mm.split(';')[0];
