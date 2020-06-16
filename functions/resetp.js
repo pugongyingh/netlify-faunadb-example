@@ -28,10 +28,10 @@ exports.handler = async (event, context) => {
       }
         }
       }
-      decoded =  JSON.parse(result);
+      decoded =  result.username;
         return {
         statusCode: 200,
-        body: decoded.username
+        body: decoded
       }      
     })  
   
