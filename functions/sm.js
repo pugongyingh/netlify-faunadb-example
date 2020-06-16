@@ -15,6 +15,6 @@ exports.handler = async (event, context) => {
 
         return {
         statusCode: 201,
-        body: user.data.username
+        body: event.email
       }
 }
