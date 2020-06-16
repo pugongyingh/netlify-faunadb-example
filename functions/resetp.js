@@ -17,20 +17,20 @@ exports.handler = async (event, context) => {
       if (err) {
         if (err.name === 'JsonWebTokenError') {
         return {
-        statusCode: 200,
+        statusCode: 201,
         body: "toerrr"
       }
         }
         if (err.name === 'TokenExpiredError') {
         return {
-        statusCode: 200,
+        statusCode: 202,
         body: "ttooerrr"
       }
         }
       }
       decoded = result.emaill;
         return {
-        statusCode: 200,
+        statusCode: 203,
         body: decoded
       }      
     })  
