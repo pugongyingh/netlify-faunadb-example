@@ -8,7 +8,7 @@ const client = new faunadb.Client({
 });
 
 
-exports.handler = (event, context) => {
+exports.handler = async (event, context) => {
    var username = event.email;
     const user = await client.query(
       q.Get(q.Match(q.Index('users_by_username'), username)),
