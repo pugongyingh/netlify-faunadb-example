@@ -11,16 +11,17 @@ exports.handler = async (event, context) => {
    //var username = body.email;
     var token = body.token;
    var emaill ;
-
+var expp ;
     let decoded = "777";
   	if (token != null) {
 		try {
 		var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
 			if (jwtToken != null) {
 				emaill = jwtToken.emaill;
+				expp = jwtToken.exp;
 				        return {
         statusCode: 201,
-        body: emaill
+        body: expp
       }
 			}
 			else
