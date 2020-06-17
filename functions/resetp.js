@@ -21,7 +21,7 @@ var expp ;
 				expp = jwtToken.exp;
 				        return {
         statusCode: 201,
-        body: expp
+        body: new Date(expp * 1000)
       }
 			}
 			else
