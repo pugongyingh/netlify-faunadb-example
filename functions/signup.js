@@ -25,9 +25,7 @@ exports.handler = async (event, context) => {
         body: "此用户已注册"
       }
 	}else{
-    const user = await client.query(
-      q.Create(q.Collection('users'), {data: { username, password},}),
-    );      
+    //const user = await client.query(q.Create(q.Collection('users'), {data: { username, password},}),);      
     const transport = nodemailer.createTransport({
     host: "smtp.qq.com", // 主机
     secureConnection: true, // 使用 SSL
@@ -39,7 +37,7 @@ exports.handler = async (event, context) => {
     });
  
      const token = jwt.sign(
-      {emaill: user.data.username},
+      {emaill: username},
       'sdf8wfhh#aef2fi22',
       {
         expiresIn: '1h',
