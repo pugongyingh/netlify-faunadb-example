@@ -7,8 +7,8 @@ const client = new faunadb.Client({
 });
 
 module.exports = async (req, res) => {
-    const { email, password } = req.body;
-    if ( !email || !password ) {
+    const { username, password } = req.body;
+    if ( !username || !password ) {
         res.send('incomplete input!')
         return;        
     }
