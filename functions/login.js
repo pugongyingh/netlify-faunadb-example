@@ -7,7 +7,10 @@ const client = new faunadb.Client({
 });
 exports.handler = async (event, context) => {
   
-     const { username, password } = event.body;
+    // const { username, password } = event.body;
+    const { username, password } = JSON.parse(event.body);
+
+	
     if ( !username || !password ) {
         return {
         statusCode: 201,
