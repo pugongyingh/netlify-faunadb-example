@@ -24,7 +24,8 @@ exports.handler = async (event, context) => {
         statusCode: 202,
         body: "此用户已注册"
       }
-	}else{
+	}}
+    catch (e) {
     //const user = await client.query(q.Create(q.Collection('users'), {data: { username, password},}),);      
     const transport = nodemailer.createTransport({
     host: "smtp.qq.com", // 主机
@@ -56,19 +57,8 @@ minn = "10";
   let value = await transport.sendMail(mailOptions);
  min= JSON.stringify(value.response);       
         
- minn = "1";          
-        return {
-        statusCode: 200,
-        body: min
-      }
-      };
-      
-      
-    
-
-
-    }
-    catch (e) {
+ minn = "1";            
+	    
            return {
         statusCode: 203,
         body: minn
