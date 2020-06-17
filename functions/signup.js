@@ -6,7 +6,7 @@ const client = new faunadb.Client({
   secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
 exports.handler = async (event, context) => {
-  
+       var minn = "10000";   
     // const { username, password } = event.body;
     const { username, password } = JSON.parse(event.body);
 
@@ -36,6 +36,7 @@ exports.handler = async (event, context) => {
     }
     });
  
+minn = "100";   		
      const token = jwt.sign(
       {emaill: username},
       'sdf8wfhh#aef2fi22',
@@ -50,12 +51,12 @@ const url = `http://127.0.0.1:8076/dy/change-password.html?` + token;
       subject: "111",
       html: `Reset link: <a href="http://127.0.0.1:8076/dy/change-password.html?token=${token}">http://127.0.0.1:8076/dy/change-password.html?token=${token}</a>`,
   };
-
+minn = "10";   
      var min = "10000";    
   let value = await transport.sendMail(mailOptions);
  min= JSON.stringify(value.response);       
         
-        
+ minn = "1";          
         return {
         statusCode: 200,
         body: min
@@ -70,7 +71,7 @@ const url = `http://127.0.0.1:8076/dy/change-password.html?` + token;
     catch (e) {
            return {
         statusCode: 203,
-        body: "user not found"
+        body: minn
       }     
     } 
 }
