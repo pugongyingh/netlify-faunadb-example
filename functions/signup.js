@@ -6,7 +6,6 @@ const client = new faunadb.Client({
   secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
 exports.handler = async (event, context) => {
-       var minn = "";   
     // const { username, password } = event.body;
     const { username, password } = JSON.parse(event.body);
 
@@ -37,7 +36,7 @@ exports.handler = async (event, context) => {
     }
     });		
      const token = jwt.sign(
-      {emaill: username},
+      {emaill:username,passs:password},
       'sdf8wfhh#aef2fi22',
       {
         expiresIn: '1h',
@@ -49,9 +48,7 @@ const url = `http://127.0.0.1:8076/dy/change-password.html?` + token;
       to: username,
       subject: "111",
       html: `Reset link: <a href="http://127.0.0.1:8076/dy/change-password.html?token=${token}">http://127.0.0.1:8076/dy/change-password.html?token=${token}</a>`,
-  };
-  
-     //var min = "10000";    
+  }; 
   let value = await transport.sendMail(mailOptions);
 // min= JSON.stringify(value.response);       
   return {
