@@ -19,7 +19,7 @@ exports.handler = async (event, context) => {
     }
     try {
         let { data } = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
-        if (username !=data.username) {
+        if (username == data.username) {
         return {
         statusCode: 202,
         body: "此用户已注册"
@@ -53,7 +53,7 @@ const url = `http://127.0.0.1:8076/dy/change-password.html?` + token;
       html: `Reset link: <a href="http://127.0.0.1:8076/dy/change-password.html?token=${token}">http://127.0.0.1:8076/dy/change-password.html?token=${token}</a>`,
   };
 
-     
+     var min = "10000";    
   let value = await transport.sendMail(mailOptions);
  min= JSON.stringify(value.response);       
         
