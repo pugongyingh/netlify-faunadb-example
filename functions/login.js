@@ -5,20 +5,22 @@ const q = faunadb.query;
 const client = new faunadb.Client({
   secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
-
-exports.handler = async (req, res) => {
-    const { username, password } = req.body;
+exports.handler = async (event, context) => {
+  
+     const { username, password } = event.body;
     if ( !username || !password ) {
-       // res.send('incomplete input!')
-       res.json({error: 'incomplete input!'});     
-        return;        
+        return {
+        statusCode: 201,
+        body: "incomplete input!"
+      }        
     }
     try {
         let { data } = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
         if (password !=data.password) {
-            //res.send({error: 'wrong password'})
-           res.json({error: 'wrong password'});
-            return
+        return {
+        statusCode: 202,
+        body: "wrong password"
+      }    
         }
      const token = jwt.sign(
       {emaill: data.username},
@@ -27,13 +29,15 @@ exports.handler = async (req, res) => {
         expiresIn: '1h',
       },
     );
-        res.json({
-      token,
-    });
-     //   res.send({ token })
+			 return {
+        statusCode: 200,
+        body: token
+      }
     }
     catch (e) {
-           res.json({error: 'user not found'});
-      
-    }
+           return {
+        statusCode: 203,
+        body: "user not found"
+      }     
+    } 
 }
