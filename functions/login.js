@@ -15,7 +15,8 @@ exports.handler = async (req, res) => {
     try {
         let { data } = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
         if (password !=data.password) {
-            res.send({error: 'wrong password'})
+            //res.send({error: 'wrong password'})
+           res.json({error: 'wrong password'});
             return
         }
      const token = jwt.sign(
@@ -25,10 +26,13 @@ exports.handler = async (req, res) => {
         expiresIn: '1h',
       },
     );
-    
-        res.send({ token })
+        res.json({
+      token,
+    });
+     //   res.send({ token })
     }
     catch (e) {
-        res.send({error: 'user not found'})
+           res.json({error: 'user not found'});
+      
     }
 }
