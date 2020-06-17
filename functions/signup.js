@@ -23,7 +23,8 @@ exports.handler = async (event, context) => {
         return {
         statusCode: 202,
         body: "此用户已注册"
-      }else{
+      }
+	}else{
     const user = await client.query(
       q.Create(q.Collection('users'), {data: { username, password},}),
     );      
