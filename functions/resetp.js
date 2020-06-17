@@ -18,10 +18,10 @@ var expp ;
 		var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
 			if (jwtToken != null) {
 				emaill = jwtToken.emaill;
-				expp = jwtToken.exp;
+				expp = new Date(jwtToken.exp * 1000);
 				        return {
         statusCode: 201,
-        body: new Date(expp * 1000)
+        body: expp
       }
 			}
 			else
