@@ -9,7 +9,8 @@ const client = new faunadb.Client({
 exports.handler = async (req, res) => {
     const { username, password } = req.body;
     if ( !username || !password ) {
-        res.send('incomplete input!')
+       // res.send('incomplete input!')
+       res.json({error: 'incomplete input!'});     
         return;        
     }
     try {
