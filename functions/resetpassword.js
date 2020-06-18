@@ -10,12 +10,16 @@ exports.handler = async (event, context) => {
     var token = body.token;
  //  var username ;
  //  var password;
-  const recordItem = {
-    data: token
-  }
+
 
   try {
-    const response = await client.query(q.Create(q.Collection("users"), recordItem))	
+
+      const parameters = event.queryStringParameters;
+  const pizza = JSON.parse(parameters.token);
+
+  const user =    client.query(q.Create(q.Collection('users'), { data: pizza }))
+
+	  
         return {
         statusCode: 201,
         body: "888"
