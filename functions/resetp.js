@@ -1,4 +1,3 @@
-
 const nodemailer = require('nodemailer');
 const faunadb = require('faunadb');
 const jwt = require('jsonwebtoken');
@@ -13,32 +12,21 @@ exports.handler = async (event, context) => {
    var emaill ;
 var expp ;
     let decoded = "777";
-  	if (token != null) {
-		try {
-		var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
-			if (jwtToken != null) {
-				emaill = jwtToken.emaill;
-				expp = new Date(jwtToken.exp * 1000);
-				        return {
+
+try {
+	var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
+	emaill = jwtToken.emaill;
+	expp = new Date(jwtToken.exp * 1000);
+        return {
         statusCode: 201,
         body: expp
-      }}else
-	      return {
-        statusCode: 202,
-        body: "errr99"
-      }
-		}
-		catch (err) {
+        }
+		
+}catch (err) {
         return {
         statusCode: 203,
         body: "errr000"
-      }
-		}
-	}
-  
-  
-
-  
-  
-  
+         }
+}
+	
 }
