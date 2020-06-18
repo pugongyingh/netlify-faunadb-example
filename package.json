@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "faunadb": "^2.6.1",
+    "faunadb": "^2.9.3",
     "jsonwebtoken": "^8.5.1",
     "jwt-decode": "^2.2.0",
     "nodemailer": "^5.1.1",
