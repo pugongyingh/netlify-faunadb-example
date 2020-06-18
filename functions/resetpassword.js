@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
 
   try {
 
-    const { username, password } = event.body;
+    const { username, password } = JSON.parse(event.body);
 
     /** @type { { data: { username: string, password: string } } }  */
     const user = await client.query(
