@@ -30,10 +30,10 @@ try {
  //       },
 //      })
  //   );
-
+let { data } = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
         return {
         statusCode: 201,
-        body: password
+        body: data.username
         }
 		
 }catch (err) {
