@@ -16,7 +16,7 @@ try {
 	//username = jwtToken.emaill;
       //  password = jwtToken.passs;
 	const { username, password } = JSON.parse(jwtToken);
-const user = await client.query(q.Create(q.Collection('users'), {data: { username, password},}),); 
+        //const user = await client.query(q.Create(q.Collection('users'), {data: { username, password},}),); 
         return {
         statusCode: 201,
         body: password
