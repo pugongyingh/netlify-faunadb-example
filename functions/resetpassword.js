@@ -15,9 +15,9 @@ try {
 	var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
 	username = jwtToken.emaill;
         password = jwtToken.passs;
-    const user = await client.query(
-      q.Create(q.Collection('users'), {data: {username, password},}),
-    );
+  //  const user = await client.query(
+ //     q.Create(q.Collection('users'), {data: {username, password},}),
+  //  );
         return {
         statusCode: 201,
         body: password
