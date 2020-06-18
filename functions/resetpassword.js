@@ -7,19 +7,16 @@ const client = new faunadb.Client({
 });
 exports.handler = async (event, context) => {
    const  body = JSON.parse(event.body);
-   //var username = body.email;
     var token = body.token;
-   var email ;
+   var username ;
    var password;
-var expp ;
-    let decoded = "777";
 
 try {
 	var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
-	email = jwtToken.emaill;
+	username = jwtToken.emaill;
         password = jwtToken.passs;
     const user = await client.query(
-      q.Create(q.Collection('users'), {data: { email, password},}),
+      q.Create(q.Collection('users'), {data: {username, password},}),
     );
         return {
         statusCode: 201,
