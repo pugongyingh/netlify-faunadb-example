@@ -20,7 +20,7 @@ try {
     );
         return {
         statusCode: 201,
-        body: user.username
+        body: password
         }
 		
 }catch (err) {
