@@ -14,11 +14,11 @@ exports.handler = async (event, context) => {
 
   try {
 
-    const { username, password } = JSON.parse(event.body);
+
 
     /** @type { { data: { username: string, password: string } } }  */
     const user = await client.query(
-      q.Create(q.Collection('users'), {data: { username, password},}),
+      q.Create(q.Collection('users'), {data: {id: 9, like: 0},}),
     );
 
 	  
