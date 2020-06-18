@@ -14,10 +14,15 @@ exports.handler = async (event, context) => {
 
   try {
 
-      const parameters = event.queryStringParameters;
-  const pizza = JSON.parse(parameters.token);
-
-  const user =    client.query(q.Create(q.Collection('users'), { data: pizza }))
+     const results = await client.query(
+       q.Create(q.Collection("users"), {
+         data: {
+           title: "la masdf sdfm sddsde",
+           youtubeId: "thisisisiannsnid",
+           owner: "other"
+         }
+       })
+     );
 
 	  
         return {
