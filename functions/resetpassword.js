@@ -6,32 +6,23 @@ const client = new faunadb.Client({
   secret: `fnADubw0wCACCJEA8UYRiSeDmSRRso8z-Wk-N5Bd`,
 });
 exports.handler = async (event, context) => {
- //  const  body = JSON.parse(event.body);
-   // var token = body.token;
- //  var username ;
- //  var password;
+  const data = JSON.parse(event.body);
+  const record = {
+    data: data,
+  };
 
-
-  try {
-
-
-
-    /** @type { { data: { username: string, password: string } } }  */
-    const user = await client.query(
-      q.Create(q.Collection('users'), {data: {id: 9, like: 0},}),
-    );
-
-	  
-        return {
-        statusCode: 201,
-        body: "888"
-        }
-		
-}catch (err) {
-        return {
-        statusCode: 203,
-        body: "errr000"
-         }
-}
-	
-}
+  return client
+    .query(q.Create(q.Collection('users'), record))
+    .then(response => {
+      return {
+        statusCode: 200,
+        body: JSON.stringify(response),
+      };
+    })
+    .catch(error => {
+      return {
+        statusCode: 400,
+        body: JSON.stringify(error),
+      };
+    });
+};
