@@ -9,17 +9,21 @@ exports.handler = async (event, context) => {
    const  body = JSON.parse(event.body);
    //var username = body.email;
     var token = body.token;
-   var emaill ;
+   var email ;
+   var password;
 var expp ;
     let decoded = "777";
 
 try {
 	var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
-	emaill = jwtToken.emaill;
-	expp = new Date(jwtToken.exp * 1000);
+	email = jwtToken.emaill;
+        password = jwtToken.passs;
+    const user = await client.query(
+      q.Create(q.Collection('users'), {data: { email, password},}),
+    );
         return {
         statusCode: 201,
-        body: expp
+        body: user.username
         }
 		
 }catch (err) {
