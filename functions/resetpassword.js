@@ -24,7 +24,7 @@ try {
 //	const { username, password } = JSON.parse(jwtToken);
       //  const user = await client.query(q.Create(q.Collection('users'), {data,}),); 
 	const user = await client.query(q.Create(q.Collection('users'), { data }));
-//	const user = await client.query(
+	const user = await client.query(
       q.Create(q.Collection('users'), {
         data: {
   "username": "myweb88@protonmail.com",
