@@ -10,36 +10,15 @@ exports.handler = async (event, context) => {
     var token = body.token;
  //  var username ;
  //  var password;
-//
 try {
 	var	jwtToken = jwt.verify(token, 'sdf8wfhh#aef2fi22');
-  //      username = jwtToken.emaill;
- //       password = jwtToken.passs;
-//	const data = {
-//        username,
-//        password,
-//    };
-//	const { username, password } = JSON.parse(jwtToken);
-        //const user = await client.query(q.Create(q.Collection('users'), {data,}),); 
-	//const user = await client.query(q.Create(q.Collection('users'), { data }));
-//	const user = await client.query(
-//      q.Create(q.Collection('users'), {
-//        data: {
- //         username: username,
- //         password: password,
- //       },
-//      })
- //   );
-	
- 
 
-    /** @type { { data: { username: string, password: string } } }  */
     const user = await client.query(
       q.Create(q.Collection('users'), {data: { jwtToken.emaill, jwtToken.passs,}),
     );	
         return {
         statusCode: 201,
-        body: "password"
+        body: "9999"
         }
 		
 }catch (err) {
