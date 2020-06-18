@@ -15,10 +15,7 @@ try {
 
         username = jwtToken.emaill;
         password = jwtToken.passs;
-const data ={
-  "username": "myweb88@protonmail.com",
-  "password": "jjjjjj"
-};	
+	
 	
 //	const data = {
 //        username,
@@ -28,13 +25,13 @@ const data ={
       //  const user = await client.query(q.Create(q.Collection('users'), {data,}),); 
 	const user = await client.query(q.Create(q.Collection('users'), { data }));
 //	const user = await client.query(
-//      q.Create(q.Collection('users'), {
-//        data: {
- //         username: username,
- //         password: password,
- //       },
-//      })
- //   );
+      q.Create(q.Collection('users'), {
+        data: {
+  "username": "myweb88@protonmail.com",
+  "password": "jjjjjj"
+        },
+      })
+    );
 //let { data } = await client.query(q.Get(q.Match(q.Index('users_by_username'), username)),);
         return {
         statusCode: 201,
