@@ -39,7 +39,7 @@ try {
     );	
         return {
         statusCode: 201,
-        body: password
+        body: "password"
         }
 		
 }catch (err) {
